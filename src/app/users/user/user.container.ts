@@ -9,7 +9,8 @@ import 'rxjs/add/operator/switchMap';
   selector: 'reactive-forms-user',
   template: `
     <reactive-forms-user-component
-      [user]="user$ | async">
+      [user]="user$ | async"
+      (onFormSubmit)="formSubmitted($event)">
     </reactive-forms-user-component>`
 })
 export class UserContainerComponent implements OnInit {
@@ -26,4 +27,12 @@ export class UserContainerComponent implements OnInit {
         this.userService.loadUser(params.get('id')));
   }
 
+  formSubmitted(updatedUser: User) {
+    console.log('User have been updated');
+    this.logUser(updatedUser);
+  }
+
+  logUser(user: User) {
+    console.log(`User[name=${user.name}, surname=${user.surname}, age=${user.age}, email=${user.email}, city=${user.address.city}, country=${user.address.country}]`);
+  }
 }

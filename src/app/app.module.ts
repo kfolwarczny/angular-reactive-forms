@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { UserContainerComponent } from './users/user/user.container';
 import { UserComponent } from './users/user/user.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
       appRoutes
     ),
     HttpModule,
+    ReactiveFormsModule,
     BrowserModule
   ],
   providers: [
