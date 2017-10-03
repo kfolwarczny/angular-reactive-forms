@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Charles",
+      "surname": "de Gaulle",
+      "age": 80,
+      "email": "Charles@deGaulle.gmail",
+      "address": [
+        {
+          "city": "Colombey-les-Deux-Églises",
+          "country": "Francja"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Abbé",
+      "surname": "Pierre",
+      "age": 95,
+      "email": "Abbé@Pierre.gmail",
+      "address": [
+        {
+          "city": "Paryz",
+          "country": "Francja"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Moïse",
+      "surname": "Brou Apanga",
+      "age": 35,
+      "email": "Brou@Apanga.gmail",
+      "address": [
+        {
+          "city": "Abidżan",
+          "country": "Wybrzeże Kości Słoniowej"
+        }
+      ]
+    }
+  ]
+}

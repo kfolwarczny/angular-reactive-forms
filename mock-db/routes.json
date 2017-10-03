@@ -1,0 +1,4 @@
+{
+  "/api/users": "/users",
+  "/api/user/:user_id": "/users/:user_id"
+}
