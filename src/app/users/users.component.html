@@ -17,7 +17,7 @@
       <td class="text-left">{{user.surname}}</td>
       <td class="text-left">{{user.age}}</td>
       <td class="text-left">{{user.email}}</td>
-      <td><button class="btn-primary">Edit</button></td>
+      <td><button class="btn-primary" (click)="editUser($event, user.id)">Edit</button></td>
     </tr>
     </tbody>
   </table>
