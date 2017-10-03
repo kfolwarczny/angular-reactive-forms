@@ -1,0 +1,24 @@
+<div class="container" >
+  <table class="table">
+    <caption>Optional table caption.</caption>
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users?.users let idx = index">
+      <th scope="row">{{idx}}</th>
+      <td class="text-left">{{user.name}}</td>
+      <td class="text-left">{{user.surname}}</td>
+      <td class="text-left">{{user.age}}</td>
+      <td class="text-left">{{user.email}}</td>
+      <td><button class="btn-primary">Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

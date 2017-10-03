@@ -4,8 +4,10 @@ Sample Angular app which show how to use angular reactive forms
 ## Instaling local dependencies
 Run `yarn` to install dependencies.
 
-
 ## Development server
+
+To start mock DB run `yarn run mock-db`. Mock API runs on `localhost:8091`.
+
 
 Run `yarn run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
