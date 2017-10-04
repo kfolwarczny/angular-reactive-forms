@@ -15,7 +15,7 @@ export class User {
       json['surname'],
       json['age'],
       json['email'],
-      Address.from(json)
+      Address.from(json['address'][0])
     );
   }
 

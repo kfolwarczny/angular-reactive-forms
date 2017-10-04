@@ -9,7 +9,7 @@ import 'rxjs/add/operator/switchMap';
   selector: 'reactive-forms-user',
   template: `
     <reactive-forms-user-component
-      [user]="user$ | async"
+      [initUser]="user$"
       (onFormSubmit)="formSubmitted($event)">
     </reactive-forms-user-component>`
 })
