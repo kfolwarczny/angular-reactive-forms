@@ -51,8 +51,12 @@ export class UserComponent implements OnInit {
   }
 
   submitForm({value}: { value: UserFormIFace }) {
-    const user: User = new User(this.user.id, value.name, value.surname, value.age, value.email, new Address(value.city, value.country));
-    this.onFormSubmit.emit(user);
+    if (this.userForm.valid) {
+      const user: User = new User(this.user.id, value.name, value.surname, value.age, value.email, new Address(value.city, value.country));
+      this.onFormSubmit.emit(user);
+    } else {
+      console.log('Form is not valid.');
+    }
   }
 
   get name() {
