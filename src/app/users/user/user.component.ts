@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Address, User } from '../types';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { get } from 'lodash';
 import { Observable } from 'rxjs/Observable';
 
@@ -12,6 +12,7 @@ export class UserComponent implements OnInit {
 
   userForm: FormGroup;
   user: User;
+  readonly = false;
 
   @Input() initUser?: Observable<User>;
   @Output() onFormSubmit = new EventEmitter();
@@ -20,13 +21,21 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userForm = new FormGroup({
-      name: new FormControl(),
-      surname: new FormControl(),
-      age: new FormControl(),
-      email: new FormControl(),
-      city: new FormControl(),
-      country: new FormControl()
+    this.userForm = this.fb.group({
+      name: [{
+        disabled: this.readonly
+      }, [Validators.required, Validators.minLength(4)]],
+      surname: [{
+        disabled: this.readonly
+      }, [Validators.required, Validators.minLength(6)]],
+      age: [{
+        disabled: this.readonly
+      }],
+      email: [{
+        disabled: this.readonly
+      }, [Validators.required, Validators.email]],
+      city: [{disabled: !this.readonly}],
+      country: [{disabled: !this.readonly}],
     });
 
     this.initUser.subscribe(user => {
@@ -44,6 +53,18 @@ export class UserComponent implements OnInit {
   submitForm({value}: { value: UserFormIFace }) {
     const user: User = new User(this.user.id, value.name, value.surname, value.age, value.email, new Address(value.city, value.country));
     this.onFormSubmit.emit(user);
+  }
+
+  get name() {
+    return this.userForm.get('name');
+  }
+
+  get surname() {
+    return this.userForm.get('surname');
+  }
+
+  get email() {
+    return this.userForm.get('email');
   }
 }
 

@@ -5,10 +5,28 @@
     <div class="form-group">
       <label for="name">Name</label>
       <input class="form-control" id="name" placeholder="Name" formControlName="name">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert alert-danger">
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="surname">Surname</label>
       <input class="form-control" id="surname" placeholder="Surname" formControlName="surname">
+      <div *ngIf="surname.invalid && (surname.dirty || surname.touched)"
+           class="alert alert-danger">
+        <div *ngIf="surname.errors.required">
+          Surname is required.
+        </div>
+        <div *ngIf="surname.errors.minlength">
+          Surname must be at least 6 characters long.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="age">User age</label>
@@ -17,6 +35,15 @@
     <div class="form-group">
       <label for="email">Email address</label>
       <input type="email" class="form-control" id="email" placeholder="email" formControlName="email">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)"
+           class="alert alert-danger">
+        <div *ngIf="email.errors.required">
+          Email is required.
+        </div>
+        <div *ngIf="email.errors.email && email.value">
+          Given value {{email.value}} is not email.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="city">User city</label>
